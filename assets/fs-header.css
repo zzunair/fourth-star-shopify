@@ -1,0 +1,118 @@
+:root {
+    --primary: #7D3AD3;
+    --black: #000000;
+    --white: #ffffff;
+    --yellow: #ffc528;
+    --whitegrey: #e5d1ff;
+    --blue: #608BF9;
+}
+
+@font-face {
+    font-family: "Anodina";
+    src: url(../fonts/Anodina_Font/Anodina-Light.otf);
+}
+
+.navbar {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+.navbar .nav-left-content {
+    display: flex;
+}
+
+.navbar .nav-brand .logo {
+    width: 230px;
+}
+
+.navbar .nav-search-bar {
+    position: relative;
+    width: 60%;
+}
+
+.navbar .nav-search-bar .nav-search-input {
+    height: 40px;
+    border: 1px solid var(--white);
+    border-radius: 13px;
+    width: 100%;
+    outline: none;
+    padding-left: 45px;
+    background: transparent;
+    color: var(--white);
+}
+
+.navbar .nav-search-bar .search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.navbar .nav-search-bar .nav-search-btn {
+    background-color: var(--primary);
+    color: var(--white);
+    font-size: 16px;
+    border-radius: 13px;
+    padding: 0 25px;
+    font-family: "Anodina";
+}
+
+.navbar .cart-content {
+    position: relative;
+    padding-right: 20px;
+}
+
+.navbar .cart-content .cart-icon {
+    cursor: pointer;
+}
+
+.navbar .cart-content .cart-counter-number {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 25px;
+    border-radius: 13px;
+    background-color: var(--blue);
+    position: absolute;
+    top: -15px;
+    right: 0;
+}
+
+.navbar .cart-content .cart-counter-number span {
+    color: var(--whitegrey);
+    font-family: "Anodina";
+    font-size: 16px;
+    line-height: 21px;
+}
+
+@media screen and (max-width: 992px) {
+    .navbar .nav-search-bar {
+        width: 53%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+
+    .navbar .nav-search-bar {
+        max-width: 100%;
+        order: 3;
+        width: 100%;
+    }
+
+    .navbar .cart-content {
+        order: 2;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .navbar .cart-content .cart-counter-number {
+        width: 33px;
+        height: 21px;
+        top: -10px;
+    }
+}

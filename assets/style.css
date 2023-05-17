@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Barlow-Normal";
+}
+
+@font-face {
+    font-family: "Anodina";
+    src: url('{{ "Anodina-Light.otf" | asset_url }}');
+}
+
+@font-face {
+    font-family: "Barlow-Normal";
+    src: url('{{ "Barlow-Light.ttf" | asset_url }}');
+}
+
+@font-face {
+    font-family: "Barlow-Bold";
+    src: url('{{ "Barlow-ExtraBold.ttf" | asset_url }}');
+}
+
+@font-face {
+    font-family: "Barlow--Normal-Bold";
+    src: url('{{ "Barlow-Bold.ttf" | asset_url }}');
+}
+
+@font-face {
+    font-family: "Barlow-Medium-Bold";
+    src: url('{{ "Barlow-Medium.ttf" | asset_url }}');
+}
+
+@font-face {
+    font-family: "Akira-Expanded";
+    src: url('{{ "Akira-Expanded-Demo.otf" | asset_url }}');
+}
+
+@font-face {
+    font-family: "Anodina";
+    src: url('{{ "Anodina-Light.otf" | asset_url }}');
+}
+
+body {
+    background: linear-gradient(45deg, #3E343E 0%, #29224A, #6031A5 120%);
+    background-repeat: no-repeat;
+}
+
+.container-section {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 10px;
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-bottom: 0 !important;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .row {
+        --bs-gutter-x: unset !important;
+    }
+}
+
+.img-deluxe-layer {
+    background: linear-gradient(145deg, transparent 60%, #AA55FF 150%);
+    overflow: hidden;
+}
+
+.img-premium-layer {
+    background: linear-gradient(145deg, transparent 60%, #FFAA55 150%);
+    overflow: hidden;
+}
+
+.img-standard-layer {
+    background: linear-gradient(145deg, transparent 60%, #D7D7D7 150%);
+    overflow: hidden;
+}
+
+.deluxe-border {
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+}
+
+.premium-border {
+    border: 1px solid var(--orange);
+    border-radius: 10px;
+}
+
+.standard-border {
+    border: 1px solid var(--whitegrey);
+    border-radius: 10px;
+}
