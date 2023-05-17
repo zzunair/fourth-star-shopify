@@ -1,0 +1,65 @@
+:root {
+    --primary: #7D3AD3;
+    --black: #000000;
+    --white: #ffffff;
+    --yellow: #ffc528;
+    --whitegrey: #e5d1ff;
+    --blue: #608BF9;
+    --orange: #FF8328;
+    --gray: #868686;
+    --purple: #211e43;
+}
+
+.carousel .carousel-inner .carousel-item {
+    height: calc(100vh - 118.86px);
+}
+
+.carousel .carousel-inner .carousel-caption {
+    left: 50% !important;
+    right: 0;
+    transform: translate(-50%);
+}
+
+.carousel .carousel-inner .carousel-caption .banner-title {
+    font-size: 51px;
+    text-transform: uppercase;
+    font-family: "Barlow-Normal";
+}
+
+.carousel .carousel-inner .carousel-caption .banner-title span {
+    font-family: "Barlow-Bold";
+    color: var(--yellow);
+}
+
+.carousel .carousel-inner .carousel-caption .banner-shop-btn {
+    background: transparent;
+    border: 1px solid var(--yellow);
+    font-size: 26px;
+    padding: 5px 30px;
+    color: var(--yellow);
+    text-transform: uppercase;
+    font-family: "Barlow-Bold";
+}
+
+.carousel .carousel-inner .carousel-item .banner-main-text {
+    position: absolute;
+    left: 112px;
+    top: 44px;
+    font-family: "Akira-Expanded";
+    text-transform: uppercase;
+    line-height: 60px;
+}
+
+.carousel .carousel-inner .carousel-item .banner-main-text .banner-prepare-heading {
+    font-size: 77px;
+    color: var(--whitegrey);
+    line-height: 70px;
+    margin-bottom: 0;
+}
+
+.carousel .carousel-inner .carousel-item .banner-main-text .banner-fleet-heading {
+    font-size: 127px;
+    color: var(--yellow);
+    line-height: 117px;
+    margin-bottom: 0;
+}
