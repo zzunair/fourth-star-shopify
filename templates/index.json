@@ -17,9 +17,16 @@
       ],
       "settings": {
       }
+    },
+    "0d85613b-a3f7-4b53-9dff-b2b5a866af49": {
+      "type": "fs-product-filters",
+      "settings": {
+        "collection": "all-products"
+      }
     }
   },
   "order": [
-    "6dec22db-48b3-4db9-b1d4-e760db20793e"
+    "6dec22db-48b3-4db9-b1d4-e760db20793e",
+    "0d85613b-a3f7-4b53-9dff-b2b5a866af49"
   ]
 }
