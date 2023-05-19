@@ -1,0 +1,192 @@
+:root {
+    --primary: #7D3AD3;
+    --black: #000000;
+    --white: #ffffff;
+    --yellow: #ffc528;
+    --whitegrey: #e5d1ff;
+    --blue: #608BF9;
+    --orange: #FF8328;
+    --gray: #868686;
+    --purple: #211e43;
+}
+
+.filter-wrapper .filter-button-group .filter-menu .active {
+    background-color: var(--blue);
+}
+
+.filter-wrapper .filter-menu {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.filter-wrapper .filter-button-group .filter-menu .btn {
+    color: var(--whitegrey) !important;
+    padding: 0px 10px;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: "Anodina";
+    box-shadow: unset;
+    border-radius: 12px;
+    line-height: 29px;
+}
+
+.product-wrapper .product-item {
+    min-height: 512px;
+}
+
+.product-wrapper .product-item .product-content {
+    margin-top: 10px;
+}
+
+.product-wrapper .product-item .product-content .product-title {
+    font-size: 36px;
+    font-family: "Barlow-Bold";
+    text-align: left;
+    color: var(--whitegrey);
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.product-wrapper .product-item .product-content .product-price {
+    font-size: 24px;
+    color: var(--whitegrey);
+    font-family: "Barlow-Normal";
+    font-weight: 800;
+}
+.product-wrapper .product-item .product-content .product-before-price {
+    font-size: 22px;
+    color: var(--whitegrey);
+    opacity: 0.5;
+    margin-top: 10px;
+    text-decoration: line-through;
+}
+
+
+.product-wrapper .product-item .product-content .deluxe-btn {
+    color: var(--whitegrey);
+    background-color: var(--primary);
+    font-size: 18px;
+    padding: 2px 13px;
+    line-height: 20px;
+    border-radius: 30px;
+    font-family: "Anodina";
+}
+
+.product-wrapper .product-item .product-content .premium-btn {
+    color: var(--whitegrey);
+    background-color: var(--orange);
+    font-size: 18px;
+    padding: 2px 13px;
+    line-height: 18px;
+    border-radius: 30px;
+    font-family: "Anodina";
+}
+
+.product-wrapper .product-item .product-content .standard-btn {
+    color: var(--whitegrey);
+    background-color: var(--gray);
+    font-size: 18px;
+    padding: 2px 13px;
+    line-height: 18px;
+    border-radius: 30px;
+    font-family: "Anodina";
+}
+
+.product-wrapper .product-item .product-hover-content .product-hover-btn {
+    border: 2px solid var(--whitegrey);
+    text-transform: uppercase;
+    color: var(--whitegrey);
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: "Barlow-Normal";
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 13px;
+    gap: 10px;
+    max-width: 240px;
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.product-wrapper .product-item .product-hover-content {
+    transition: all 0.3s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    opacity: 0;
+}
+
+.product-wrapper .product-item:hover .product-hover-content {
+    opacity: 1;
+}
+
+.product-img-box .product-off-content {
+    color: var(--whitegrey);
+    background-color: var(--blue);
+    font-weight: 700;
+    font-size: 23px;
+    border-radius: 22px;
+    padding: 1px 12px;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+}
+
+.product-wrapper .product-item:hover .product-img {
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+}
+
+.product-wrapper .product-item .product-img-box {
+    position: relative;
+}
+
+.product-wrapper .product-item .product-img-box .product-img {
+    transition: all 0.3s;
+}
+
+@media screen and (max-width: 991.98px) {
+    .filter-wrapper .filter-button-group .filter-menu {
+        justify-content: center !important;
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 767.98px) {
+    .filter-wrapper .filter-button-group .filter-menu {
+        justify-content: unset !important;
+        flex-wrap: unset;
+        overflow-x: auto;
+        gap: 16px;
+    }
+
+    .filter-wrapper .filter-button-group .filter-menu .btn {
+        font-size: 18px;
+    }
+
+    .product-wrapper .product-item {
+        margin: 0 10px;
+    }
+}
+
+@media screen and (max-width: 575.98px) {
+    .product-wrapper .product-item .product-content .product-title {
+        font-size: 26px;
+    }
+    .product-wrapper .product-item {
+        margin: 0;
+    }
+}
