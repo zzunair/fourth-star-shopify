@@ -1,3 +1,14 @@
+:root {
+    --primary: #7D3AD3;
+    --black: #000000;
+    --white: #ffffff;
+    --yellow: #ffc528;
+    --whitegrey: #e5d1ff;
+    --blue: #608BF9;
+    --orange: #FF8328;
+    --gray: #868686;
+    --purple: #211e43;
+}
 * {
     margin: 0;
     padding: 0;
@@ -64,7 +75,7 @@ p {
 
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767.98px) {
     .row {
         --bs-gutter-x: unset !important;
     }

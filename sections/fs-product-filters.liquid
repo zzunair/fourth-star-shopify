@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="{{'fs-product-filters.css' | asset_url }}">
+<script src="{{'script.js' | asset_url }}" defer></script>
+<script src="{{'filters-script.js' | asset_url }}" defer></script>
+
+
+
+<!-- product filter section -->
+<div class="container-section">
+    <div class="filter-wrapper">
+        <div class="mb-md-4 mb-5 button-group filter-button-group">
+            <div class="d-flex justify-content-between filter-menu">
+                <button type="button" data-filter="*" class="active btn">All</button>
+                <button type="button" data-filter=".promotions" class="btn">Promotions</button>
+                <button type="button" data-filter=".clothes" class="btn">Clothes</button>
+                <button type="button" data-filter=".spaceships" class="btn">Spaceships</button>
+                <button type="button" data-filter=".pets" class="btn">Pets</button>
+                <button type="button" data-filter=".boosters" class="btn">Boosters</button>
+                <button type="button" data-filter=".tickets" class="btn">Tickets</button>
+                <button type="button" data-filter=".furniture" class="btn">Furniture</button>
+                <button type="button" data-filter=".others" class="btn">Other</button>
+            </div>
+        </div>
+
+        {% assign col = collections[section.settings.collection] %}
+        <div class="row justify-content-center product-wrapper g-4" id="product-list">
+            
+            {% for product in col.products %}
+                {%- assign t = '' -%}
+                {%- assign spec = '' -%}
+                {% for tag in product.tags %}
+                    {%- if tag contains 'f-' -%}
+                        {%- assign t = tag | replace: 'f-', '' -%}
+                    {%- endif -%}
+                    {%- if tag contains 's-' -%}
+                        {%- assign spec = tag | replace: 's-', '' -%}
+                    {%- endif -%}
+                  {% endfor %}
+                <div class="col-lg-3 col-md-6 {{ t }}">
+                    <div class="product-item" id={{ product.id }}>
+                        <div class="product-img-box img-{{spec}}-layer {{spec}}-border">
+                            <img src="{{product.featured_image.src | img_url: 'master'}}" alt="{{product.featured_image.alt}}"
+                                class="img-fluid d-block mx-auto product-img product-img">
+                            <div class="product-hover-content">
+                                <div class="cart-btn-content">
+                                    <a href="javascript:void(0)" class="add-to-cart-btn product-hover-btn" data-id='{{ product.selected_or_first_available_variant.id }}'>
+                                        <img src="{{'add-to-cart.png' | asset_img_url: 'master' }}">Add to Cart</a>
+                                </div>
+                                <div class="view-btn">
+                                    <a href="{{product.url}}" class="view-btn product-hover-btn">
+                                        <img src="{{'eye.png' | asset_img_url: 'master' }}"> View
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <button class="btn {{spec}}-btn">{{spec}}</button>
+                            <span class="d-block product-title">{{product.title}}</span>
+                            <span class="product-price">{{product.price | money}}</span>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+    {
+        "name": "FS Product Filters",
+        "settings": [
+            {
+                "type": "collection",
+                "id": "collection",
+                "label": "Select Collection",
+                "info": "Select a collection to show on homepage"
+            }            
+        ],
+        "presets": [
+            {
+                "name": "FS Product Filters"
+            }
+        ]
+    }
+{% endschema %}

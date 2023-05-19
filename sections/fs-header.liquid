@@ -10,8 +10,8 @@
                     </a>
                 </div>
                 <form action="/search" method="get" role="search" class="d-flex nav-search-bar me-auto mt-md-0 mt-3">
-                    <input type="search" class="nav-search-input me-2" name="q">
-                    <img class="search-icon" src="{{'search.png' | asset_img_url: 'master'}}">
+                    <input type="search" class="nav-search-input me-2" name="q" style="background-image: url('{{ "search.png" | asset_img_url: "master" }}') ">
+                    {% comment %} <img class="search-icon" src="{{'search.png' | asset_img_url: 'master'}}"> {% endcomment %}
                     <button class="nav-search-btn btn">Search</button>
                 </form>
                 {% comment %} <form action="">
@@ -20,12 +20,17 @@
                   </form> {% endcomment %}
                   
                 <div class="cart-content">
+                    <a href="/cart">
                     <img class="cart-icon" src="{{'cart.png' | asset_img_url: 'master'}}">
+                    {% if cart.item_count > 0 %}
                     <div class="cart-counter-number">
-                        <span>12</span>
+                        <span>{{ cart.item_count }}</span>
                     </div>
+                    {% endif %}
+                    <a/>
                 </div>
             </div>
         </div>
     </nav>
 </header>
+
