@@ -1,4 +1,20 @@
  <link rel="stylesheet" href="{{'fs-hero-banner.css' | asset_url }}">
+ <style>
+    @media screen and (min-width: 1200px) {
+        .carousel::after {
+            -webkit-animation: off-on 5s infinite linear;
+            animation: off-on 5s infinite linear;
+            background: url({{ 'banner-shape-1.png' | asset_img_url: 'master' }}) no-repeat top left;
+            content: '';
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: -168px;
+            width: 100%;
+            z-index: -1;
+        }
+    }
+</style>
  
  <!-- Banner start -->
  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">

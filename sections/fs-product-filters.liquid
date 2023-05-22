@@ -3,6 +3,14 @@
 <script src="{{'filters-script.js' | asset_url }}" defer></script>
 
 
+{% comment %} <button onclick="showAlert()">Show Alert</button> {% endcomment %}
+
+<div id="alertBox" class="alert-box">
+    <span class="close-btn" onclick="closeAlert()">&times;</span>
+    {% comment %} <h2>Yayy!</h2> {% endcomment %}
+    <p>This is a custom alert message.</p>
+  </div>
+
 
 <!-- product filter section -->
 <div class="container-section">
@@ -42,7 +50,7 @@
                                 class="img-fluid d-block mx-auto product-img product-img">
                             <div class="product-hover-content">
                                 <div class="cart-btn-content">
-                                    <a href="javascript:void(0)" class="add-to-cart-btn product-hover-btn" data-id='{{ product.selected_or_first_available_variant.id }}'>
+                                    <a href="javascript:void(0)" class="add-to-cart-btn product-hover-btn" data-name='{{ product.title }}' data-id='{{ product.selected_or_first_available_variant.id }}'>
                                         <img src="{{'add-to-cart.png' | asset_img_url: 'master' }}">Add to Cart</a>
                                 </div>
                                 <div class="view-btn">
@@ -51,6 +59,7 @@
                                     </a>
                                 </div>
                             </div>
+                            {% comment %} <span class="product-off-content">-20%</span> {% endcomment %}
                         </div>
                         <div class="product-content">
                             <button class="btn {{spec}}-btn">{{spec}}</button>

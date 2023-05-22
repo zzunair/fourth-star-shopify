@@ -52,11 +52,11 @@
     font-family: "Akira-Expanded";
 }
 
-@media screen and (min-width: 1200px) {
+/* @media screen and (min-width: 1200px) {
     .carousel::after {
         -webkit-animation: off-on 5s infinite linear;
         animation: off-on 5s infinite linear;
-        background: url(../images/banner-shape-1.png) no-repeat top left;
+        background: url({{'banner-shape-1.png' | asset_img_url: 'master'}}) no-repeat top left;
         content: '';
         height: 100%;
         position: absolute;
@@ -65,7 +65,7 @@
         width: 100%;
         z-index: -1;
     }
-}
+} */
 
 @media screen and (max-width: 991.98px) {
     .carousel .carousel-inner .carousel-item .banner-main-text {
