@@ -1,0 +1,50 @@
+
+.pdp-tabs-section {
+    margin-top: 134px;
+}
+
+.pdp-tabs-section .pdp-tabs {
+    border-bottom: 1px solid var(--darkblack);
+}
+
+.pdp-tabs-section .pdp-tabs .nav-item {
+    width: 50%;
+}
+
+.pdp-tabs-section .pdp-tabs .nav-item .nav-link {
+    margin: 0 auto;
+    color: var(--whitegrey);
+    font-size: 24px;
+    width: 100%;
+    border: 0;
+    text-transform: uppercase;
+    font-family: "Barlow-Medium-Bold";
+    opacity: 0.5;
+}
+
+.pdp-tabs-section .pdp-tabs .nav-item .nav-link.active {
+    background: transparent;
+    border-bottom: 3px solid var(--white);
+    color: var(--white);
+    opacity: 1;
+}
+
+.pdp-tabs-section .tab-content {
+    padding: 30px 15px;
+}
+
+.pdp-tabs-section .tab-content p {
+    font-size: 24px;
+    color: var(--whitegrey);
+    line-height: normal;
+}
+
+@media screen and (max-width: 575.98px) {
+    .pdp-tabs-section .tab-content p {
+        font-size: 20px;
+    }
+
+    .pdp-tabs-section .pdp-tabs .nav-item .nav-link {
+        font-size: 20px;
+    }
+}
