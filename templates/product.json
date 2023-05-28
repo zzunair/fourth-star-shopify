@@ -96,10 +96,36 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "0d9e63fd-8c5d-44ed-9990-41931680c069": {
+      "type": "fs-pdp",
+      "blocks": {
+        "395ce241-2bb0-4f76-8ada-d97ac7015647": {
+          "type": "tabs",
+          "settings": {
+            "tab-name": "Description",
+            "desc": ""
+          }
+        },
+        "e4459f9a-dba6-48b7-873a-cd533a2d1f24": {
+          "type": "tabs",
+          "settings": {
+            "tab-name": "Specs",
+            "desc": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam euismod elit mauris, vitae finibus nunc eleifend ut. In hac habitasse platea dictumst. Quisque condimentum enim sed erat ornare, luctus sed eu augue. Aenean ultrices diam massa, at imperdiet augue aliquet ut.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "395ce241-2bb0-4f76-8ada-d97ac7015647",
+        "e4459f9a-dba6-48b7-873a-cd533a2d1f24"
+      ],
+      "settings": {
+      }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "related-products",
+    "0d9e63fd-8c5d-44ed-9990-41931680c069"
   ]
 }
