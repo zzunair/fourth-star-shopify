@@ -1108,6 +1108,8 @@ a.product__text {
 
   .thumbnail-list.slider--tablet-up .thumbnail-list__item.slider__slide {
     width: calc(25% - 0.8rem);
+    border: 1px solid var(--whitegrey);
+    border-radius: 5px;
   }
 
   .product--thumbnail_slider .slider-mobile-gutter .slider-button {

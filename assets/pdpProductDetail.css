@@ -1,4 +1,7 @@
-
+.product__media img{
+    border: 1px solid var(--whitegrey);
+    border-radius: 5px;
+}
 .product-detail-section .pdp-detail-content {
     padding-left: 80px;
 }

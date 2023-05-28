@@ -1,131 +1,52 @@
-{{ 'pdpSlider.css' | asset_url | stylesheet_tag }}
-{{ 'pdpProductDetail.css' | asset_url | stylesheet_tag }}
+{% comment %} {{ 'pdpSlider.css' | asset_url | stylesheet_tag }}
+{{ 'pdpProductDetail.css' | asset_url | stylesheet_tag }} {% endcomment %}
 {{ 'pdpTabs.css' | asset_url | stylesheet_tag }}
 
-<div class="container-section">
-  <div class="product-detail-section">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="pdp-slider-wrapper">
-          <div class="pdp-slider-content">
-            {% if product.images.size > 1 %}
-              {% for image in product.images %}
-                <div class="bs-overlay">
-                  <img src="{{ image.src | img_url: 'large' }}" alt="{{ image.alt | escape }}">
-                </div>
-              {% endfor %}
-            {% else %}
-              {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
-              <div class="bs-overlay">
-                <img src="{{ featured_image | img_url: 'large' }}" alt="{{ featured_image.alt | escape }}">
-              </div>
-            {% endif %}
-          </div>
-          {% if product.images.size > 1 %}
-            <div class="slider-nav-wrapper">
-              <div class="slider-nav-thumbnails">
-                {% for image in product.images %}
-                  <div class="thumnail-img-box">
-                    <img src="{{ image.src | img_url: 'compact' }}" alt="{{ image.alt | escape }}">
-                  </div>
-                {% endfor %}
-              </div>
-            </div>
-          {% endif %}
+<div class="container">
+  <div class="pdp-tabs-section">
+    <ul class="nav nav-tabs pdp-tabs" id="myTab" role="tablist">
+      {% for block in section.blocks %}
+        <li class="nav-item" role="presentation">
+          <button class="{% if forloop.first %}active {% endif %}nav-link" id="tab-{{ forloop.index }}" data-bs-toggle="tab" data-bs-target="#tab-{{ forloop.index }}"
+              type="button" role="tab" aria-controls="tab-{{ forloop.index }}" aria-selected="true">{{ block.settings.tab-name }}</button>
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      {% for b in section.blocks %}
+        <div class="tab-pane fade show {% if forloop.first %}active{% endif %}" id="tab-{{ forloop.index }}" role="tabpanel" aria-labelledby="tab-{{ forloop.index }}">
+          {{ b.settings.desc }}
         </div>
-      </div>
-      <div class="col-md-6">
-        <div class="pdp-detail-content">
-          <h3 class="pdp-title">{{ product.title }}</h3>
-          {% for option in product.options_with_values %}
-            {% for value in option.values %}
-              {% if option.name == 'Tier' %}
-                <p class="pdp-tier">
-                  {{ option.name }}:<button class="btn pdp-deluxe-btn ms-2">{{ value }}</button>
-                </p>
-              {% endif %}
-              {% if option.name == 'Color' %}
-              <div class="choose-color-dropdown">
-                <span class="color-text">Color:</span>
-                <div class="select_wrap">
-                  <ul class="default_option">
-                    <li>
-                      <div class="option white">
-                        <div class="icon"></div>
-                        <p>White</p>
-                      </div>
-                    </li>
-                  </ul>
-                  <ul class="select_ul">
-                    <li>
-                      <div class="option white">
-                        <div class="icon"></div>
-                        <p>White</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="option black">
-                        <div class="icon"></div>
-                        <p>Black</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="option blue">
-                        <div class="icon"></div>
-                        <p>Blue</p>
-                      </div>
-                    </li>
-                    <li>
-                      <div class="option orange">
-                        <div class="icon"></div>
-                        <p>Orange</p>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              {% endif %}
-            {% endfor %}
-          {% endfor %}
-          <p class="pdp-category-text">
-            Category: <span class="pdp-category-type">{{ product.category }}</span>
-          </p>
-          <p class="pdp-about-text">
-            Tags:
-            {% for tag in product.tags -%}
-              {{- tag }}
-              {%- unless forloop.last -%},&nbsp;{%- endunless -%}
-            {% endfor %}
-          </p>
-          <div class="pdp-product-price-content">
-            <h4 class="pdp-product-price">{{ product.price | money }}</h4>
-            <h5 class="pdp-product-before-price">{{ product.compare_at_price | money }}</h5>
-          </div>
-          {% comment %}
-            {%- for option in product.options_with_values -%}
-              {% for value in option.values %}
-                 Name: {{ option.name }},
-                Value: {{ value }},
-            {% endfor %}
-                {% endfor %}
-          {% endcomment %}
-          <div class="pdp-add-to-cart">
-            <a href="" class="pdp-add-to-cart-btn">
-              <img src="{{ 'add-to-cart-black.png' | asset_img_url: "master" }}"> Add to cart
-            </a>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </div>
 
-<script src="{{ 'pdp-script.js' | asset_url }}" defer></script>
+
+{% comment %} <script src="{{ 'pdp-script.js' | asset_url }}" defer></script> {% endcomment %}
 
 {% schema %}
 {
-  "name": "Fs PDP",
+  "name": "Fs PDP tabs",
   "settings": [],
+  "blocks": [
+    {
+      "type": "tabs",
+      "name": "Tabs", 
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab-name",
+          "label": "Tab Name"
+        },
+        {
+          "type": "richtext",
+          "id": "desc",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
       "name": "Fs PDP"

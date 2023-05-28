@@ -1,0 +1,159 @@
+{{ 'fs-cart.css' | asset_url | stylesheet_tag }}
+{%- if cart != empty -%}
+    
+    <div class="container-section">
+        <div class="shipping-cart-container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="shipping-cart">
+                        <div class="d-flex justify-content-between shipping-cart-head">
+                            <h3 class="cart-heading">Shopping Cart</h3>
+                            <p class="cart-item-nmb">2 Items</p>
+                        </div>
+                        <div class="cart-items-head">
+                            <div class="row align-items-center justify-content-between">
+                                <div class="col-md-7 col-7">
+                                    <p class="cart-items-edtail-text">Item Details</p>
+                                </div>
+                                <div class="col-md-3 col-3">
+                                    <p class="cart-items-edtail-text text-center">Quantity</p>
+                                </div>
+                                <div class="col-md-2 col-2">
+                                    <p class="cart-items-edtail-text text-end">Price</p>
+                                </div>
+                            </div>
+                        </div>
+                        {%- for item in cart.items -%}
+                        <div class="cart-items-content">
+                            <div class="row align-items-center">
+                                <div class="col-md-7 col-7">
+                                    <div class="cart-item-detail-content d-flex align-items-center">
+                                        <div class="cart-close">
+                                            <i class="fa-solid fa-xmark cart-close-icon"></i>
+                                        </div>
+                                        {%- if item.image -%}
+                                        <a href="{{ item.url }}" class="cart-item-img-box standard-border img-standard-layer">
+                                            <img src="{{ item.image | img_url: 'master' }}" class="cart-img" alt="{{ item.image.alt | escape }}">
+                                        </a>
+                                        {%- endif -%}
+                                        <a href="{{ item.url }}" class="cart-item-title">{{ item.product.title }}</a>
+                                        <dl>
+                                            {%- unless item.product.has_only_default_variant -%}
+                                              {%- for option in item.options_with_values -%}
+                                                <div class="product-option">
+                                                  <dt>{{ option.name }}:</dt>
+                                                  <dd>{{ option.value }}</dd>
+                                                </div>
+                                              {%- endfor -%}
+                                            {%- endunless -%}
+                                            {%- for property in item.properties -%}
+                                              {%- assign property_first_char = property.first | slice: 0 -%}
+                                              {%- if property.last != blank and property_first_char != '_' -%}
+                                                <div class="product-option">
+                                                  <dt>{{ property.first }}:</dt>
+                                                  <dd>
+                                                    {%- if property.last contains '/uploads/' -%}
+                                                      <a href="{{ property.last }}" class="link" target="_blank">
+                                                        {{ property.last | split: '/' | last }}
+                                                      </a>
+                                                    {%- else -%}
+                                                      {{ property.last }}
+                                                    {%- endif -%}
+                                                  </dd>
+                                                </div>
+                                              {%- endif -%}
+                                            {%- endfor -%}
+                                          </dl>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-3">
+                                    <div class="cart-quantity-content input-group">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default btn-subtract" type="button">
+                                                <i class="fa-solid fa-minus minus"></i>
+                                            </button>
+                                        </span>
+                                        <input type="number" class="form-control no-padding text-center item-quantity"
+                                            value="1">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default btn-add" type="button">
+                                                <i class="fa-solid fa-plus plus"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-2 ps-0 ">
+                                    <p class="cart-price"> {{- item.original_price | money -}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {%- endfor -%}
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="order-summary">
+                        <h3 class="order-summary-heading">Order Summary</h3>
+                        <div class="order-summary-content">
+                            <div class="order-summary-detail">
+                                <p class="order-summary-text">Items</p>
+                                {% assign subtotal = cart.total_price | minus: cart.total_discounts | minus: cart.total_tax %}
+                                <p class="order-summary-text">{{ subtotal | money }}</p>
+                            </div>
+                            <div class="order-summary-detail">
+                            {%- for discount in cart.cart_level_discount_applications -%}
+                                <p class="order-summary-text">Savings</p>
+                                <p class="order-summary-text">-{{ discount.total_allocated_amount | money }}</p>
+                            {%- endfor -%}
+                            </div>
+                            {% comment %} <div class="order-summary-detail">
+                                <p class="order-summary-text">Promo</p>
+                                <p class="order-summary-text">-$10.00</p>
+                            </div> {% endcomment %}
+                            <div class="order-summary-detail">
+                                <p class="order-summary-total-text">Total</p>
+                                <p class="order-summary-total-nmb">{{ cart.total_price | money_with_currency }}</p>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <button class="btn connect-wallet-btn">Connect Wallet</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% comment %} <div class="promo-code-content">
+                <form action="" class="promo-code-form">
+                    <label for="" class="promo-code-label">Promo Code</label>
+                    <div class="promo-code-place">
+                        <input type="text" placeholder="4S100FF" class="promo-code-input">
+                        <button type="submit" class="promo-code-apply-btn">Apply</button>
+                    </div>
+                </form>
+            </div> {% endcomment %}
+            {% comment %} <div class="promotion-content">
+                <h5 class="promotion-heading">Active Promotions:</h5>
+                <p class="promotion-off-text">Get $10 off your first purchase</p>
+            </div> {% endcomment %}
+            <div class="continue-shopping-content">
+                <a href="#" class="continue-shopping-text">
+                    <i class="fa-solid fa-chevron-left arrow-back"></i>
+                    Continue Shopping
+                </a>
+                <!-- <p class="continue-shopping-text">Continue Shopping</p> -->
+            </div>
+        </div>
+    </div>
+{%- endif -%}
+
+
+
+{% schema %}
+{
+  "name": "Fs Cart",
+  "settings": [],
+  "presets": [
+    {
+      "name": "FS Cart"
+    }
+  ]
+}
+{% endschema %}
