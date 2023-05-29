@@ -1,0 +1,264 @@
+.template-search__header h1{
+    color: var(--whitegrey);
+}
+.sort-products-section {
+    margin-top: 100px;
+}
+
+.sort-products-section .sort-product-tabs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.sort-products-section .sort-product-tabs .btn {
+    font-size: 24px;
+    color: var(--whitegrey);
+    padding: 0 10px;
+    line-height: 24px;
+    box-shadow: unset;
+    font-weight: 500;
+}
+
+.sort-product-wrapper {
+    max-width: 755px;
+    width: 100%;
+}
+
+.sort-product-wrapper .sort-product-results .sort-rsult-text {
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--whitegrey);
+    line-height: 30px;
+}
+
+.sort-product-wrapper .sort-product-results .sort-rsult-text span {
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--whitegrey);
+    font-family: "Barlow--Normal-Bold";
+    font-style: italic;
+}
+
+.sort-product-wrapper .sort-product-results .sort-total-items {
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--whitegrey);
+}
+
+.sort-product-wrapper .sort-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 40px;
+    position: relative;
+}
+
+.sort-product-wrapper .sort-dropdown::after {
+    position: absolute;
+    content: '';
+    height: 1px;
+    background-color: var(--whitegrey);
+    opacity: 0.5;
+    width: 100%;
+    bottom: -5px;
+}
+
+.sort-product-wrapper .sort-dropdown .filters-select {
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    color: var(--whitegrey);
+    font-size: 20px;
+    font-weight: 600;
+    max-width: 130px;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.sort-product-wrapper .sort-dropdown {
+    position: relative;
+}
+.sort-product-wrapper .sort-dropdown::before {
+    content: '\f0dd';
+    font-family: FontAwesome;
+    position: absolute;
+    color: var(--whitegrey);
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    cursor: pointer;
+}
+
+.sort-product-wrapper .sort-dropdown .sort-by-text {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--whitegrey);
+}
+
+.sort-product-wrapper .sort-dropdown .filters-select option {
+    background-color: var(--black);
+}
+
+.sort-product-main {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+}
+
+.sort-product-main .sort-product-items {
+    display: flex;
+    position: relative;
+    margin: 40px 0;
+}
+
+.sort-product-main .sort-product-items::after {
+    position: absolute;
+    content: '';
+    height: 1px;
+    background-color: var(--whitegrey);
+    width: 100%;
+    bottom: -20px;
+    opacity: 0.5;
+}
+
+.sort-product-main .sort-product-items .img-box {
+    max-width: 230px;
+    width: 100%;
+    height: 230px;
+    position: relative;
+}
+
+.sort-product-main .sort-product-items .img-box .product-off-btn {
+    color: var(--whitegrey);
+    background-color: var(--blue);
+    font-weight: 700;
+    font-size: 23px;
+    border-radius: 22px;
+    padding: 2px 9px;
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    cursor: unset;
+}
+
+.sort-product-main .sort-product-items .img-box .sort-product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sort-product-main .sort-product-items .sort-product-detail {
+    margin-left: 22px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.sort-product-main .sort-product-items .sort-product-detail .deluxe-btn {
+    color: var(--whitegrey);
+    background-color: var(--primary);
+    font-size: 18px;
+    padding: 0px 13px;
+    line-height: 20px;
+    border-radius: 30px;
+    font-family: "Anodina";
+}
+
+.sort-product-main .sort-product-items .sort-product-detail .hot-btn {
+    color: var(--whitegrey);
+    background-color: var(--pink);
+    font-size: 18px;
+    padding: 0px 18px;
+    line-height: 20px;
+    border-radius: 30px;
+    font-family: "Anodina";
+}
+
+.sort-product-main .sort-product-items .sort-product-detail .product-btns {
+    display: flex;
+    gap: 8px;
+}
+
+.sort-product-main .sort-product-items .sort-product-detail .product-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--whitegrey);
+    font-family: "Barlow--Normal-Bold";
+    line-height: 40px;
+    /* max-width: 400px; */
+    padding-right: 80px;
+    text-decoration: none;
+}
+
+.sort-product-main .sort-product-items .sort-product-detail .product-price {
+    font-size: 31px;
+    color: var(--whitegrey);
+    font-family: "Barlow--Normal-Bold";
+    line-height: 31px;
+    margin-top: 45px;
+}
+
+.sort-product-main .sort-product-items .sort-product-detail .product-before-price {
+    font-size: 26px;
+    color: var(--whitegrey);
+    opacity: 0.5;
+    text-decoration: line-through;
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 767.98px) {
+    .sort-products-section .sort-product-tabs {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .sort-product-wrapper .sort-product-results {
+        margin-top: 30px;
+    }
+
+    .sort-product-main {
+        gap: 0;
+    }
+}
+
+@media screen and (max-width: 575.98px) {
+    .sort-product-main .sort-product-items .sort-product-detail .product-title {
+        font-size: 20px;
+        line-height: 31px;
+        margin-top: 10px;
+    }
+
+    .sort-product-main .sort-product-items .sort-product-detail .product-price {
+        font-size: 30px;
+    }
+
+    .sort-product-main .sort-product-items .img-box .product-off-btn {
+        font-size: 16px;
+        cursor: unset;
+    }
+
+    .sort-product-wrapper .sort-product-results .sort-rsult-text {
+        font-size: 25px;
+    }
+
+    .sort-product-wrapper .sort-product-results .sort-rsult-text span {
+        font-size: 25px;
+    }
+
+    .sort-products-section .sort-product-tabs .btn {
+        font-size: 22px;
+    }
+
+    .sort-products-section .sort-product-tabs {
+        gap: 20px;
+    }
+}
