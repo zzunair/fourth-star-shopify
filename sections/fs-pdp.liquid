@@ -3,24 +3,32 @@
 {{ 'pdpTabs.css' | asset_url | stylesheet_tag }}
 
 <div class="container">
-  <div class="pdp-tabs-section">
-    <ul class="nav nav-tabs pdp-tabs" id="myTab" role="tablist">
-      {% for block in section.blocks %}
-        <li class="nav-item" role="presentation">
-          <button class="{% if forloop.first %}active {% endif %}nav-link" id="tab-{{ forloop.index }}" data-bs-toggle="tab" data-bs-target="#tab-{{ forloop.index }}"
-              type="button" role="tab" aria-controls="tab-{{ forloop.index }}" aria-selected="true">{{ block.settings.tab-name }}</button>
-        </li>
-      {% endfor %}
-    </ul>
-    <div class="tab-content" id="myTabContent">
-      {% for b in section.blocks %}
-        <div class="tab-pane fade show {% if forloop.first %}active{% endif %}" id="tab-{{ forloop.index }}" role="tabpanel" aria-labelledby="tab-{{ forloop.index }}">
-          {{ b.settings.desc }}
-        </div>
-      {% endfor %}
-    </div>
+<div class="pdp-tabs-section">
+  <ul class="nav nav-tabs pdp-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+              type="button" role="tab" aria-controls="home" aria-selected="true">Description</button>
+      </li>
+      <li class="nav-item" role="presentation">
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+              type="button" role="tab" aria-controls="profile" aria-selected="false">Specs</button>
+      </li>
+  </ul>
+  <div class="tab-content" id="">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="tab">
+        {% if product.description != blank %}
+          <p>{{product.description}}</p>
+          {% else %}
+          <p>Descritption is empty</p>
+        {% endif %}  
+      </div>
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <p> {{ product.metafields.custom.specss }} </p>
+      </div>
   </div>
 </div>
+</div>
+
 
 
 {% comment %} <script src="{{ 'pdp-script.js' | asset_url }}" defer></script> {% endcomment %}

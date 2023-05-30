@@ -1,5 +1,5 @@
 {{ 'fs-cart.css' | asset_url | stylesheet_tag }}
-{%- if cart != empty -%}
+    {%- if cart != empty -%}
     
     <div class="container-section">
         <div class="shipping-cart-container">
@@ -8,7 +8,7 @@
                     <div class="shipping-cart">
                         <div class="d-flex justify-content-between shipping-cart-head">
                             <h3 class="cart-heading">Shopping Cart</h3>
-                            <p class="cart-item-nmb">2 Items</p>
+                            <p class="cart-item-nmb">{{ cart.item_count }} Items</p>
                         </div>
                         <div class="cart-items-head">
                             <div class="row align-items-center justify-content-between">
@@ -29,7 +29,9 @@
                                 <div class="col-md-7 col-7">
                                     <div class="cart-item-detail-content d-flex align-items-center">
                                         <div class="cart-close">
+                                            <a href="{{ item.url_to_remove }}">
                                             <i class="fa-solid fa-xmark cart-close-icon"></i>
+                                            </a>
                                         </div>
                                         {%- if item.image -%}
                                         <a href="{{ item.url }}" class="cart-item-img-box standard-border img-standard-layer">
@@ -68,18 +70,38 @@
                                 </div>
                                 <div class="col-md-3 col-3">
                                     <div class="cart-quantity-content input-group">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default btn-subtract" type="button">
-                                                <i class="fa-solid fa-minus minus"></i>
-                                            </button>
-                                        </span>
-                                        <input type="number" class="form-control no-padding text-center item-quantity"
-                                            value="1">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-default btn-add" type="button">
-                                                <i class="fa-solid fa-plus plus"></i>
-                                            </button>
-                                        </span>
+
+                                        <div class="quantity cart-quantity input-group-btn">
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default btn-subtract quantity__button no-js-hidden" name="minus" type="button">
+                                                    <i class="fa-solid fa-minus minus"></i>
+                                                </button>
+                                            </span>
+                                            <input
+                                              class="quantity__input item-quantity"
+                                              data-quantity-variant-id="{{ item.variant.id }}"
+                                              type="number"
+                                              name="updates[]"
+                                              value="{{ item.quantity }}"
+                                              data-price="{{ item.price | money }}"
+                                              {% # theme-check-disable %}
+                                              data-cart-quantity="{{ cart | item_count_for_variant: item.variant.id }}"
+                                              min="{{ item.variant.quantity_rule.min }}"
+                                              {% if item.variant.quantity_rule.max != null %}
+                                                max="{{ item.variant.quantity_rule.max }}"
+                                              {% endif %}
+                                              step="{{ item.variant.quantity_rule.increment }}"
+                                              {% # theme-check-enable %}
+                                              aria-label="{{ 'products.product.quantity.input_label' | t: product: item.product.title | escape }}"
+                                              id="Quantity-{{ item.index | plus: 1 }}"
+                                              data-index="{{ item.index | plus: 1 }}"
+                                            >
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default btn-add quantity__button no-js-hidden" name="plus" type="button">
+                                                    <i class="fa-solid fa-plus plus"></i>
+                                                </button>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-2 ps-0 ">
@@ -97,7 +119,7 @@
                             <div class="order-summary-detail">
                                 <p class="order-summary-text">Items</p>
                                 {% assign subtotal = cart.total_price | minus: cart.total_discounts | minus: cart.total_tax %}
-                                <p class="order-summary-text">{{ subtotal | money }}</p>
+                                <p class="order-summary-text" id="subtotal">{{ subtotal | money }}</p>
                             </div>
                             <div class="order-summary-detail">
                             {%- for discount in cart.cart_level_discount_applications -%}
@@ -142,8 +164,98 @@
             </div>
         </div>
     </div>
-{%- endif -%}
+    {%- else -%}
 
+    <div class="drawer__inner-empty">
+        <div class="cart-drawer__warnings center{% if settings.cart_drawer_collection != blank %} cart-drawer__warnings--has-collection{% endif %}">
+          <div class="cart-drawer__empty-content">
+            <h2 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h2>
+            </button>
+            <a href="/" class="button">
+              {{ 'general.continue_shopping' | t }}
+            </a>
+
+            {%- if shop.customer_accounts_enabled and customer == null -%}
+              <p class="cart__login-title h3">{{ 'sections.cart.login.title' | t }}</p>
+              <p class="cart__login-paragraph">
+                {{ 'sections.cart.login.paragraph_html' | t: link: routes.account_login_url }}
+              </p>
+            {%- endif -%}
+          </div>
+        </div>
+        {%- if settings.cart_drawer_collection != blank -%}
+          <div class="cart-drawer__collection">
+            {% render 'card-collection', card_collection: settings.cart_drawer_collection, columns: 1 %}
+          </div>
+        {%- endif -%}
+      </div>
+
+    {%- endif -%}
+<script>
+
+
+$(document).ready(function() {
+  var container = $(".cart-quantity-content");
+  if (container.length > 0) {
+    var currentValue = 0;
+
+    container.on("click", ".btn-subtract", function() {
+      var inputElement = $(this).closest(".quantity").find(".item-quantity");
+      currentValue = parseInt(inputElement.val());
+      var qty = currentValue - 1;
+      inputElement.val(qty);
+      var price = inputElement.attr("data-price").replace("$", "");
+      var id = inputElement.attr("data-quantity-variant-id");
+      ajaxToUpdate(id, qty);
+    });
+
+    container.on("click", ".btn-add", function() {
+      var inputElement = $(this).closest(".quantity").find(".item-quantity");
+      currentValue = parseInt(inputElement.val());
+      var qty = currentValue + 1;
+      inputElement.val(qty);
+      var price = inputElement.attr("data-price").replace("$", "");
+      var id = inputElement.attr("data-quantity-variant-id");
+      ajaxToUpdate(id, qty);
+    });
+
+    function ajaxToUpdate(varId, qnty) {
+        $.ajax({
+                type: "post",
+                url: "/cart/update.js",
+                dataType: "json",
+                async: false,
+                data: "updates[" + varId + "]=" + qnty + "",
+                success: function (req, res) {
+                    console.log(res);
+                    jQuery.getJSON("/cart.js", function (cart) {
+                        if (cart.item_count > 0) {
+                            let subtotal = (cart.items_subtotal_price / 100).toFixed(2);;
+                            let total = (cart.total_price / 100).toFixed(2);
+                            let currency = cart.currency; 
+                            let ncurrency = (currency === "USD" ? '$' : currency);
+                            let count = cart.item_count;
+                            console.log(cart, "cart", currency);
+                            $(".cart-counter-number span").text(cart.item_count);
+                            $('#subtotal').text(`$${subtotal}`)
+                            $(".order-summary-total-nmb").text(`$${total} ${currency}`)
+                            $(".cart-item-nmb").text(`${count} Item${count !== 1 ? 's' : ''}`);
+                            
+                        }
+                    });
+                },
+                error: function (req, status, err) {
+                    console.log("something went wrong", status, err);
+                },
+            });
+    }
+  }
+});
+
+
+
+
+</script>
 
 
 {% schema %}

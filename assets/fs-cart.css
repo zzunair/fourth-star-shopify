@@ -347,6 +347,26 @@ input[type=number]::-webkit-inner-spin-button {
     cursor: pointer;
 }
 
+h2.cart__empty-text {
+    color: var(--whitegrey);
+}
+.cart-drawer__empty-content a.button {
+    background: transparent;
+    border: 1px solid var(--yellow);
+    font-size: 26px;
+    padding: 5px 30px;
+    color: var(--yellow);
+    text-transform: uppercase;
+    font-family: "Barlow-Bold";
+    border-radius: 13px;
+}
+.drawer__inner-empty {
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media screen and (max-width: 1199.98px) {
     .shipping-cart-container .shipping-cart .shipping-cart-head .cart-heading {
         font-size: 27px;
