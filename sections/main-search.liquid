@@ -171,7 +171,7 @@
                             <span class="sort-total-items">  {{ 'products.facets.product_count' | t: product_count: search.products_count, count: search.all_products_count }}</span>
                             {%- endif -%} 
                         </div>
-                        <div class="sort-dropdown">
+                        <!-- <div class="sort-dropdown">
                             <span class="sort-by-text me-2">Sort By:</span>
                             <select class="filters-select">
                                 <option>Relevance</option>
@@ -183,7 +183,7 @@
                                 <option>Boosters</option>
                                 <option>Tickets</option>
                             </select>
-                        </div>
+                        </div> -->
                         <div class="sort-product-main" id="sortproduct-list">
                           {%- for item in search.results -%}
                               {%- case item.object_type -%}
@@ -198,13 +198,13 @@
                                             {%- assign specs = tag | replace: 's-', '' | capitalize -%}
                                         {%- endif -%}
                                       {% endfor %}
-                                  <div class="sort-product-items {{ tier }}">
-                                    <a href="{{ item.url }}" class="img-box deluxe-border img-deluxe-layer">
+                                  <div class="sort-product-items {{ tier }}" data-category="{{ tier }}">
+                                    <a href="{{ item.url }}" class="img-box {{ specs | downcase }}-border img-{{ specs | downcase }}-layer">
                                         <img src="{{ item.featured_image | img_url: 'master' }}" class="sort-product-img">
                                     </a>
                                     <div class="sort-product-detail">
                                         <div class="product-btns">
-                                            <button class="btn deluxe-btn">{{ specs }}</button>
+                                            <button class="btn {{ specs | downcase }}-btn">{{ specs }}</button>
                                         </div>
                                         <a href="{{ item.url }}" class="product-title">{{ item.title }}</a>
                                         <p class="product-price">{{ item.price | money }}</p>
@@ -223,6 +223,23 @@
     {%- endif -%}
   </div>
 {% endpaginate %}
+
+<script>
+
+
+$(document).ready(function() {
+  $('.sort-product-tabs button').click(function() {
+    var buttonText = $(this).text().trim().toLowerCase();
+    if (buttonText === 'all') {
+      $('.sort-product-items').show();
+    } else {
+      $('.sort-product-items').hide();
+      $('.sort-product-items[data-category="' + buttonText + '"]').show();
+    }
+  });
+});
+
+</script>
 
 {% schema %}
 {

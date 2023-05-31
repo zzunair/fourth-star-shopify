@@ -62,7 +62,7 @@
                             {% comment %} <span class="product-off-content">-20%</span> {% endcomment %}
                         </div>
                         <div class="product-content">
-                            <button class="btn {{spec}}-btn">{{spec}}</button>
+                            <button class="btn {{spec}}-btn">{{spec | capitalize }}</button>
                             <span class="d-block product-title">{{product.title}}</span>
                             <span class="product-price">{{product.price | money}}</span>
                         </div>

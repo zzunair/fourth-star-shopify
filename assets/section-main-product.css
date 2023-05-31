@@ -173,6 +173,8 @@ variant-selects {
 
 .product-form__input--dropdown {
   margin-bottom: 1.6rem;
+  display: flex;
+  align-items: center;
 }
 
 .product-form__input .form__label {
@@ -274,8 +276,28 @@ fieldset.product-form__input .form__label {
 
 .product-form__input .select {
   max-width: 25rem;
+  display: inline-block;
+  width: auto;
+  margin-left: 20px;
 }
 
+.product-form__input .select select {
+  min-height: auto;
+  height: auto;
+  color: #fff;
+  width: auto;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
+}
+.product-form__input .select svg {
+  color: #fff;
+  right: 10px;
+}
+.product-form__input .form__label{
+  min-width: 60px;
+}
 .product-form__submit {
   margin-bottom: 1rem;
 }
@@ -1100,6 +1122,7 @@ a.product__text {
     padding: 0.5rem;
     flex: 1;
     scroll-padding-left: 0.5rem;
+    justify-content: center;
   }
 
   .product__media-wrapper .slider-mobile-gutter .slider-button {

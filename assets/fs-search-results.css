@@ -173,9 +173,18 @@
     font-family: "Anodina";
 }
 
-.sort-product-main .sort-product-items .sort-product-detail .hot-btn {
+.sort-product-main .sort-product-items .sort-product-detail .premium-btn {
     color: var(--whitegrey);
-    background-color: var(--pink);
+    background-color: var(--orange);
+    font-size: 18px;
+    padding: 0px 18px;
+    line-height: 20px;
+    border-radius: 30px;
+    font-family: "Anodina";
+}
+.sort-product-main .sort-product-items .sort-product-detail .standard-btn {
+    color: var(--whitegrey);
+    background-color: var(--gray);
     font-size: 18px;
     padding: 0px 18px;
     line-height: 20px;

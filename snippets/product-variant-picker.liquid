@@ -44,9 +44,11 @@
     >
       {%- for option in product.options_with_values -%}
         <div class="product-form__input product-form__input--dropdown">
-          <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
-            {{ option.name }}
-          </label>
+          {%- if option.name != 'Tier'  -%}
+            <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+              {{ option.name }}:
+            </label>
+          
           <div class="select">
             <select
               id="Option-{{ section.id }}-{{ forloop.index0 }}"
@@ -58,6 +60,12 @@
             </select>
             {% render 'icon-caret' %}
           </div>
+        {%- else -%}
+        <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+          {{ option.name }}: {{option.values[0]}}
+        </label>
+        {%- endif -%}
+
         </div>
       {%- endfor -%}
 
