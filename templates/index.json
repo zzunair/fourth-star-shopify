@@ -23,10 +23,20 @@
       "settings": {
         "collection": "all-products"
       }
+    },
+    "539f054e-5f42-46c6-af49-9b0fceb99d01": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
     "6dec22db-48b3-4db9-b1d4-e760db20793e",
-    "0d85613b-a3f7-4b53-9dff-b2b5a866af49"
+    "0d85613b-a3f7-4b53-9dff-b2b5a866af49",
+    "539f054e-5f42-46c6-af49-9b0fceb99d01"
   ]
 }
