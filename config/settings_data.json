@@ -1,6 +1,6 @@
 {
   "current": {
-    "logo": "shopify:\/\/shop_images\/p-fourthstar-logo_lonestar_color_200x200_a1043f4f-759b-4f04-831b-0b048d71b40f.png",
+    "logo": "shopify:\/\/shop_images\/p-fourthstar-monarch3D.png",
     "logo_width": 90,
     "colors_solid_button_labels": "#ffffff",
     "colors_accent_1": "#121212",
@@ -138,6 +138,17 @@
         "type": "main-password-footer",
         "settings": {
           "color_scheme": "background-1"
+        }
+      },
+      "fs-header": {
+        "type": "fs-header",
+        "settings": {
+        }
+      },
+      "fs-footer": {
+        "type": "fs-footer",
+        "settings": {
+          "social": true
         }
       }
     },
