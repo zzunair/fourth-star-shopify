@@ -30,31 +30,31 @@
         "e3e777c0-1f79-4e93-b856-d2abd1a59ed8": {
           "type": "Filters",
           "settings": {
-            "filterTitle": "Starbase"
+            "filterTitle": "starbase"
           }
         },
         "a8362a6a-2fc6-4075-8431-886723f0527b": {
           "type": "Filters",
           "settings": {
-            "filterTitle": "Ships"
+            "filterTitle": "ships"
           }
         },
         "7a7e9bda-cc75-4b1d-8e3e-74c06c3b6a2f": {
           "type": "Filters",
           "settings": {
-            "filterTitle": "Crew"
+            "filterTitle": "crew"
           }
         },
         "353d03b8-8e11-48a4-a17f-96b79fdeb74a": {
           "type": "Filters",
           "settings": {
-            "filterTitle": "Crates"
+            "filterTitle": "crates"
           }
         },
         "3dd77a43-83d1-4bfb-aef4-3c61ebe7139f": {
           "type": "Filters",
           "settings": {
-            "filterTitle": "Skins"
+            "filterTitle": "skins"
           }
         }
       },
