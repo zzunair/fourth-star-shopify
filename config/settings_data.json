@@ -148,7 +148,10 @@
       "fs-footer": {
         "type": "fs-footer",
         "settings": {
-          "social": true
+          "social": true,
+          "showrefbtn": true,
+          "refbtntext": "Refer Your Friends",
+          "refBtnLink": "https:\/\/fourthstarmarketpl.referralcandy.com"
         }
       }
     },
