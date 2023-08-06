@@ -7,7 +7,7 @@
           "type": "Slide",
           "settings": {
             "image": "shopify:\/\/shop_images\/main-banner.png",
-            "btn-url": "shopify:\/\/collections",
+            "btn-url": "shopify:\/\/products\/antarctic-1",
             "btn-text": "Shop Now"
           }
         }
