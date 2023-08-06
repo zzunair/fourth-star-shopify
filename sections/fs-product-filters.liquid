@@ -18,14 +18,18 @@
         <div class="mb-md-4 mb-5 button-group filter-button-group">
             <div class="d-flex justify-content-between filter-menu">
                 <button type="button" data-filter="*" class="active btn">All</button>
-                <button type="button" data-filter=".promotions" class="btn">Promotions</button>
+                {% for block in section.blocks %}
+                    
+                    <button type="button" data-filter=".{{block.settings.filterTitle}}" class="btn">{{block.settings.filterTitle}}</button>              
+                {% endfor %}
+                {% comment %} <button type="button" data-filter=".promotions" class="btn">Promotions</button>
                 <button type="button" data-filter=".clothes" class="btn">Clothes</button>
                 <button type="button" data-filter=".spaceships" class="btn">Spaceships</button>
                 <button type="button" data-filter=".pets" class="btn">Pets</button>
                 <button type="button" data-filter=".boosters" class="btn">Boosters</button>
                 <button type="button" data-filter=".tickets" class="btn">Tickets</button>
                 <button type="button" data-filter=".furniture" class="btn">Furniture</button>
-                <button type="button" data-filter=".others" class="btn">Other</button>
+                <button type="button" data-filter=".others" class="btn">Other</button> {% endcomment %}
             </div>
         </div>
 
@@ -84,6 +88,19 @@
                 "label": "Select Collection",
                 "info": "Select a collection to show on homepage"
             }            
+        ],
+        "blocks": [
+            {
+                "name":"filters",
+                "type": "Filters",
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "filterTitle",
+                        "label": "Filter Title"
+                    }
+                ]
+            }
         ],
         "presets": [
             {

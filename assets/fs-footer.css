@@ -101,7 +101,16 @@
     background-color: var(--purple);
     color: var(--whitegrey);
 }
-
+.banner-shop-btn, .banner-shop-btn:hover {
+    background: transparent;
+    border: 1px solid var(--yellow);
+    font-size: 26px;
+    padding: 5px 30px;
+    color: var(--yellow);
+    text-transform: uppercase;
+    font-family: "Barlow-Bold";
+    border-radius: 13px;
+}
 @media screen and (max-width: 575.98px) {
     .footer .footer-content .footer-heading {
         margin-bottom: 20px;
@@ -113,5 +122,9 @@
 
     .footer .footer-follow {
         justify-content: flex-start !important;
+    }
+    .banner-shop-btn {
+        font-size: 16px;
+        padding: 3px 18px;
     }
 }
