@@ -4,7 +4,7 @@
 <footer class="footer">
      <div class="container">
     <div class="row">
-        <div class="col-sm-6">
+        <div class="{%- if section.settings.showrefbtn -%} col-sm-4 {%- else -%} col-sm-6 {%- endif -%} ">
             <div class="footer-content">
                 {% comment %} <h2 class="footer-heading">Company</h2> {% endcomment %}
                 <a href="#">
@@ -12,7 +12,14 @@
                 </a>
             </div>
         </div>
-        <div class="col-sm-6 mt-sm-0 mt-5 footer-follow d-flex justify-content-end">
+        {%- if section.settings.showrefbtn -%}
+            <div class="col-sm-4">
+                <a href="{{section.settings.refBtnLink}}" target="_blank">
+                    <button class="btn banner-shop-btn">{{section.settings.refbtntext}}</button>
+                </a>
+            </div>
+        {%- endif -%}
+        <div class="{%- if section.settings.showrefbtn -%} col-sm-4 {%- else -%} col-sm-6 {%- endif -%} mt-sm-0 mt-5 footer-follow d-flex justify-content-end">
             <div class="footer-content">
                 {%- if section.settings.social -%}
                 <h3 class="footer-heading">Follow Us</h3>
@@ -54,8 +61,24 @@
                 "id": "social",
                 "label": "Show Social Links",
                 "default": true
+            },
+            {
+                "type": "checkbox",
+                "id": "showrefbtn",
+                "label": "Show Referal Button",
+                "default": true
+            },
+            {
+                "type": "text",
+                "id": "refbtntext",
+                "label": "Referal Button Text",
+                "default": "Refer Your Friends"
+            },
+            {
+                "type": "text",
+                "id": "refBtnLink",
+                "label": "Referral link"
             }
-
         ]
     }
 {% endschema %}
