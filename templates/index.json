@@ -20,6 +20,52 @@
     },
     "0d85613b-a3f7-4b53-9dff-b2b5a866af49": {
       "type": "fs-product-filters",
+      "blocks": {
+        "e50aa5c2-9b6d-4e76-9fd2-20434874bb4f": {
+          "type": "Filters",
+          "settings": {
+            "filterTitle": "Sales"
+          }
+        },
+        "e3e777c0-1f79-4e93-b856-d2abd1a59ed8": {
+          "type": "Filters",
+          "settings": {
+            "filterTitle": "Starbase"
+          }
+        },
+        "a8362a6a-2fc6-4075-8431-886723f0527b": {
+          "type": "Filters",
+          "settings": {
+            "filterTitle": "Ships"
+          }
+        },
+        "7a7e9bda-cc75-4b1d-8e3e-74c06c3b6a2f": {
+          "type": "Filters",
+          "settings": {
+            "filterTitle": "Crew"
+          }
+        },
+        "353d03b8-8e11-48a4-a17f-96b79fdeb74a": {
+          "type": "Filters",
+          "settings": {
+            "filterTitle": "Crates"
+          }
+        },
+        "3dd77a43-83d1-4bfb-aef4-3c61ebe7139f": {
+          "type": "Filters",
+          "settings": {
+            "filterTitle": "Skins"
+          }
+        }
+      },
+      "block_order": [
+        "e50aa5c2-9b6d-4e76-9fd2-20434874bb4f",
+        "e3e777c0-1f79-4e93-b856-d2abd1a59ed8",
+        "a8362a6a-2fc6-4075-8431-886723f0527b",
+        "7a7e9bda-cc75-4b1d-8e3e-74c06c3b6a2f",
+        "353d03b8-8e11-48a4-a17f-96b79fdeb74a",
+        "3dd77a43-83d1-4bfb-aef4-3c61ebe7139f"
+      ],
       "settings": {
         "collection": "all-products"
       }
