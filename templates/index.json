@@ -27,6 +27,12 @@
             "filterTitle": "sales"
           }
         },
+        "865ed0f8-165c-46d3-99a8-bb3830e35432": {
+          "type": "Filters",
+          "settings": {
+            "filterTitle": "land"
+          }
+        },
         "e3e777c0-1f79-4e93-b856-d2abd1a59ed8": {
           "type": "Filters",
           "settings": {
@@ -60,6 +66,7 @@
       },
       "block_order": [
         "e50aa5c2-9b6d-4e76-9fd2-20434874bb4f",
+        "865ed0f8-165c-46d3-99a8-bb3830e35432",
         "e3e777c0-1f79-4e93-b856-d2abd1a59ed8",
         "a8362a6a-2fc6-4075-8431-886723f0527b",
         "7a7e9bda-cc75-4b1d-8e3e-74c06c3b6a2f",
