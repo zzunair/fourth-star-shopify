@@ -66,9 +66,15 @@
                             {% comment %} <span class="product-off-content">-20%</span> {% endcomment %}
                         </div>
                         <div class="product-content">
+                            {% if product.compare_at_price > product.price %}
+                                <button class="btn deluxe-btn">Sale</button>
+                            {% endif %}
                             <button class="btn {{spec}}-btn">{{spec | capitalize }}</button>
                             <span class="d-block product-title">{{product.title}}</span>
-                            <span class="product-price">{{product.price | money}}</span>
+                            {% if product.compare_at_price > product.price %}
+                                <s class="product-price">{{product.compare_at_price | money}}</s>
+                                <span class="product-price">{{product.price | money}}</span>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

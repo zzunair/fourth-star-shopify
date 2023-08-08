@@ -58,6 +58,9 @@
     font-family: "Barlow-Normal";
     font-weight: 800;
 }
+.product-wrapper .product-item .product-content s.product-price{
+    margin-right: 20px;
+}
 .product-wrapper .product-item .product-content .product-before-price {
     font-size: 22px;
     color: var(--whitegrey);
