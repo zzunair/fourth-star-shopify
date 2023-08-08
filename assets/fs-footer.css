@@ -111,6 +111,9 @@
     font-family: "Barlow-Bold";
     border-radius: 13px;
 }
+.col-sm-4mt-sm-0.footer-follow.d-flex.justify-content-end {
+    width: auto;
+}
 @media screen and (max-width: 575.98px) {
     .footer .footer-content .footer-heading {
         margin-bottom: 20px;
