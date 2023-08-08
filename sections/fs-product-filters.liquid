@@ -74,6 +74,8 @@
                             {% if product.compare_at_price > product.price %}
                                 <s class="product-price">{{product.compare_at_price | money}}</s>
                                 <span class="product-price">{{product.price | money}}</span>
+                            {% else %}
+                                <span class="product-price">{{product.price | money}}</span>
                             {% endif %}
                         </div>
                     </div>
