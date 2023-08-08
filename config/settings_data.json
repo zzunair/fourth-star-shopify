@@ -148,10 +148,11 @@
       "fs-footer": {
         "type": "fs-footer",
         "settings": {
+          "f-image": "shopify:\/\/shop_images\/p-fourthstar-monarch3D_7b0e6b78-c4f9-47b6-932c-30dd41ef2d7b.png",
           "social": true,
           "showrefbtn": true,
-          "refbtntext": "Refer Your Friends",
-          "refBtnLink": "https:\/\/fourthstarmarketpl.referralcandy.com"
+          "refbtntext": "Become an Affiliate",
+          "refBtnLink": "https:\/\/af.uppromote.com\/MonarchMMO\/register"
         }
       }
     },
