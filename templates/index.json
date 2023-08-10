@@ -18,6 +18,21 @@
       "settings": {
       }
     },
+    "32b0d6fd-39b0-4d81-a19e-f0721a658f47": {
+      "type": "video",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video_url": "https:\/\/youtu.be\/Kh5UwNKVqkk",
+        "cover_image": "shopify:\/\/shop_images\/p-fourthstar-monarch3D_7b0e6b78-c4f9-47b6-932c-30dd41ef2d7b.png",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "0d85613b-a3f7-4b53-9dff-b2b5a866af49": {
       "type": "fs-product-filters",
       "blocks": {
@@ -89,6 +104,7 @@
   },
   "order": [
     "6dec22db-48b3-4db9-b1d4-e760db20793e",
+    "32b0d6fd-39b0-4d81-a19e-f0721a658f47",
     "0d85613b-a3f7-4b53-9dff-b2b5a866af49",
     "539f054e-5f42-46c6-af49-9b0fceb99d01"
   ]
