@@ -24,20 +24,38 @@
                 {%- if section.settings.social -%}
                 <h3 class="footer-heading">Follow Us</h3>
                 <ul class="social-list">
-                    <li class="social-icons-item"><a href="https://www.linkedin.com/company/fourth-star/" target="_blank" class="social-link"><i
-                                class="fa-brands fa-linkedin-in footer-icons"></i></a></li>
-                    <li class="social-icons-item"><a href="https://www.facebook.com/FourthstarOfficial/" target="_blank" class="social-link"><i
+                    {% if section.settings.linkedin %}                       
+                    <li class="social-icons-item">
+                        <a  href="{{section.settings.linkedin}}" target="_blank" class="social-link"><i
+                            class="fa-brands fa-linkedin-in footer-icons"></i></a></li>
+                    {% endif %}
+                    {% if section.settings.facebook %}
+                    <li class="social-icons-item">
+                        <a href="{{section.settings.facebook}}" target="_blank" class="social-link"><i
                                 class="fa-brands fa-facebook-f footer-icons"></i></a></li>
-                    <li class="social-icons-item"><a href="https://twitter.com/OfficialXFS" target="_blank" class="social-link"><i
+                    {% endif %}
+                    {% if section.settings.twitter %}
+                        <li class="social-icons-item">
+                            <a href="{{section.settings.twitter}}" target="_blank" class="social-link"><i
                                 class="fa-brands fa-twitter footer-icons"></i></a></li>
-                    {% comment %} <li class="social-icons-item"><a href="#" class="social-link"><i
-                                class="fa-brands fa-instagram footer-icons"></i></a></li> {% endcomment %}
-                    <li class="social-icons-item"><a href="https://discord.gg/fourthstar" target="_blank" class="social-link"><i
+                    {% endif %}
+                    {% if section.settings.instagram %}
+                        <li class="social-icons-item"><a href="{{ section.settings.instagram }}" class="social-link"><i
+                                class="fa-brands fa-instagram footer-icons"></i></a></li>
+                    {% endif %}
+                    {% if section.settings.discord %}
+                    <li class="social-icons-item"><a href="{{section.settings.discord}}" target="_blank" class="social-link"><i
                                 class="fa-brands fa-discord footer-icons"></i></a></li>
-                    <li class="social-icons-item"><a href="https://youtube.com/@lunaone2638" target="_blank" class="social-link"><i
+                    {% endif %}
+                    {% if section.settings.youtube %}
+                    <li class="social-icons-item"><a href="{{section.settings.youtube}}" target="_blank" class="social-link"><i
                                 class="fa-brands fa-youtube footer-icons"></i></a></li>
-                    <li class="social-icons-item"><a href="https://medium.com/@Fourthstar" target="_blank" class="social-link"><i
+                    {% endif %}
+                    {% if section.settings.medium %}
+                    <li class="social-icons-item"><a href="{{section.settings.medium}}" target="_blank" class="social-link"><i
                                 class="fa-brands fa-medium footer-icons"></i></a></li>
+                    {% endif %}
+
                 </ul>
                 {%- endif -%}
             </div>
@@ -78,6 +96,45 @@
                 "type": "text",
                 "id": "refBtnLink",
                 "label": "Referral link"
+            },
+            {
+                "type": "header",
+                "content": "Social Links"
+            },
+            {
+                "type": "text",
+                "id": "linkedin",
+                "label": "LinkedIn"
+            },
+            {
+                "type": "text",
+                "id": "facebook",
+                "label": "Facebook"
+            },
+            {
+                "type": "text",
+                "id": "instagram",
+                "label": "Instagram"
+            },
+            {
+                "type": "text",
+                "id": "twitter",
+                "label": "Twitter"
+            },
+            {
+                "type": "text",
+                "id": "discord",
+                "label": "Discord"
+            },
+            {
+                "type": "text",
+                "id": "youtube",
+                "label": "Youtube"
+            },
+            {
+                "type": "text",
+                "id": "medium",
+                "label": "Medium"
             }
         ]
     }
