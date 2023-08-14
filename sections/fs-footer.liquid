@@ -24,34 +24,34 @@
                 {%- if section.settings.social -%}
                 <h3 class="footer-heading">Follow Us</h3>
                 <ul class="social-list">
-                    {% if section.settings.linkedin %}                       
+                    {% if section.settings.linkedin != blank %}                       
                     <li class="social-icons-item">
                         <a  href="{{section.settings.linkedin}}" target="_blank" class="social-link"><i
                             class="fa-brands fa-linkedin-in footer-icons"></i></a></li>
                     {% endif %}
-                    {% if section.settings.facebook %}
+                    {% if section.settings.facebook != blank %}
                     <li class="social-icons-item">
                         <a href="{{section.settings.facebook}}" target="_blank" class="social-link"><i
                                 class="fa-brands fa-facebook-f footer-icons"></i></a></li>
                     {% endif %}
-                    {% if section.settings.twitter %}
+                    {% if section.settings.twitter != blank %}
                         <li class="social-icons-item">
                             <a href="{{section.settings.twitter}}" target="_blank" class="social-link"><i
                                 class="fa-brands fa-twitter footer-icons"></i></a></li>
                     {% endif %}
-                    {% if section.settings.instagram %}
+                    {% if section.settings.instagram != blank %}
                         <li class="social-icons-item"><a href="{{ section.settings.instagram }}" class="social-link"><i
                                 class="fa-brands fa-instagram footer-icons"></i></a></li>
                     {% endif %}
-                    {% if section.settings.discord %}
+                    {% if section.settings.discord != blank %}
                     <li class="social-icons-item"><a href="{{section.settings.discord}}" target="_blank" class="social-link"><i
                                 class="fa-brands fa-discord footer-icons"></i></a></li>
                     {% endif %}
-                    {% if section.settings.youtube %}
+                    {% if section.settings.youtube != blank %}
                     <li class="social-icons-item"><a href="{{section.settings.youtube}}" target="_blank" class="social-link"><i
                                 class="fa-brands fa-youtube footer-icons"></i></a></li>
                     {% endif %}
-                    {% if section.settings.medium %}
+                    {% if section.settings.medium != blank %}
                     <li class="social-icons-item"><a href="{{section.settings.medium}}" target="_blank" class="social-link"><i
                                 class="fa-brands fa-medium footer-icons"></i></a></li>
                     {% endif %}
