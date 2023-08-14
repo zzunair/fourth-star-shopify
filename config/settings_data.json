@@ -152,7 +152,14 @@
           "social": true,
           "showrefbtn": true,
           "refbtntext": "Become an Affiliate",
-          "refBtnLink": "https:\/\/af.uppromote.com\/MonarchMMO\/register"
+          "refBtnLink": "https:\/\/af.uppromote.com\/MonarchMMO\/register",
+          "linkedin": "",
+          "facebook": "",
+          "instagram": "",
+          "twitter": "https:\/\/twitter.com\/OfficialXFS",
+          "discord": "https:\/\/discord.gg\/fourthstar",
+          "youtube": "https:\/\/youtube.com\/@lunaone2638",
+          "medium": ""
         }
       }
     },
