@@ -140,10 +140,25 @@
                             <button class="btn connect-wallet-btn connect-btn" onclick="ethersSign()">Connect Wallet</button>
                         </a>
                          <a href="/checkout" class="checkout" style="display:none">
-                            <button class="btn connect-wallet-btn" > Checkout </button>
+                            <button class="btn connect-wallet-btn checkout-btn" > Checkout </button>
                         </a>
+                        <a href="javascript:void(0)" onclick="editAddress()" class="editAddress" style="display:none">
+                          <button class="btn connect-wallet-btn edit-wallet-btn" > Edit Wallet Address </button>
+                      </a>
                     </div>
                 </div>
+            </div>
+            <!-- code to write cart notes in it -->
+            <div class="cart-notes-wrapper mt-5">
+              <div class="cart-notes-heading">
+                <h3>Please enter your wallet address</h3>
+              </div>
+              <div class="text-wrapper mt-3">
+                <textarea name="address-content" id="wallet-address-text" cols="80" rows="2"></textarea>
+              </div>
+              <div class="cart-notes-submit mt-3">
+                <button class="btn banner-shop-btn" id="submitButton">SUBMIT</button>
+              </div>
             </div>
             {% comment %} <div class="promo-code-content">
                 <form action="" class="promo-code-form">
@@ -194,6 +209,21 @@
       </div>
 
     {%- endif -%}
+    <!-- Custom popup/modal -->
+    <div id="customPopup" class="hidden deluxe-border">
+      <div id="popupContent">
+        <p>Do you want to save the entered value?</p>
+        <div class="button-wrap">
+          <button class="btn btn-default" id="confirmSave">Yes</button>
+          <button class="btn btn-subtract" id="cancelSave">No</button>
+        </div>
+      </div>
+    </div>
+    <div id="alertBox" class="alert-box">
+      <span class="close-btn" onclick="closeAlert()">&times;</span>
+      <p>Your wallet address has been saved.</p>
+    </div>
+  
 <script>
 
 
@@ -254,120 +284,10 @@ $(document).ready(function() {
     }
   }
 });
-
-
-
-
 </script>
 <script src="https://cdn.jsdelivr.net/npm/metakeep@2.1.1/lib/index.js" integrity="sha256-8qP2IE9BJAzdc7SGXsob3JGqkxmGL2/i/d24JkZy2i8=" crossorigin="anonymous"></script>
 <script src="https://cdn.ethers.io/lib/ethers-5.7.umd.min.js" type="application/javascript"></script>
-<script>
-  /* Init SDK */
-const sdk = new MetaKeep({
-    /* App id to configure UI */
-    appId: "effd88e2-cb07-42fd-8dec-3a757f8413de",
-    /* Default chain to use */
-    chainId: 1,
-    /* RPC node urls map */
-    rpcNodeUrls: {
-    // Update with your node API key
-    1: "https://eth-mainnet.g.alchemy.com/v2/GTQf7yPXwNMQpAtFvOJc_bHhsGZYS-7d"
-}
-});
-
-
-/* Get signature using web3 provider*/
-async function ethersSign() {
-
-      try {
-      console.log("Initiazing MetaKeep Web3 provider");
-      
-      // Use MetaKeep web3 provider
-      web3Provider = await sdk.ethereum;
-      await web3Provider.enable();
-      
-      // Initialize ethers provider
-      const ethersProvider = new ethers.providers.Web3Provider(web3Provider);
-      
-      // Signer
-      const signer = ethersProvider.getSigner()
-      const signerAddress = await signer.getAddress()
-      console.log(signerAddress)
-      
-      // Sign message
-      const signMessageResponse = await signer.signMessage("Welcome to Meta Keep Wallet");
-      console.log("sign message successful");
-      console.log(signMessageResponse);
-      
-        const d = new Date();
-      d.setTime(d.getTime() + (7*24*60*60*1000));
-      let expires = "expires="+ d.toUTCString();
-      document.cookie = 'walletAddress' + "=" + signerAddress + ";" + expires + ";path=/";
-      
-      updateCartNotesAndAttributes(signerAddress)
-      
-       var element = document.getElementsByClassName("checkout");
-      element[0].style.display = "block";
-      var walletButton = document.getElementsByClassName("connect-btn");
-      walletButton[0].innerText = "Wallet Connected";
-      
-      } catch (err) {
-      console.log("Error when trying to perform provider operations");
-      console.log(err.message || err);
-      }
-}
-
-function updateCartNotesAndAttributes(signerAddress) {
-  let cartData = {
-    attributes: signerAddress,
-    note: 'cartData'
-  }
-  $.ajax({
-    type: 'POST',
-    url: '/cart/update.js',
-    data: {
-     attributes: {
-        "WalletAddress": signerAddress 
-        }  
-    },
-    dataType: 'json',
-    success: function(cart) {
-      // Success callback - You can handle any success messages or UI updates here
-      // console.log('Cart updated successfully:', cart);
-      
-    },
-    error: function(XMLHttpRequest, textStatus) {
-      // Error callback - Handle any errors that occur during the AJAX request
-      console.error('Error updating cart:', textStatus);
-    }
-  });
-}
-
-  function getCookie(cname) {
-let name = cname + "=";
-let ca = document.cookie.split(';');
-for(let i = 0; i < ca.length; i++) {
-let c = ca[i];
-while (c.charAt(0) == ' ') {
-  c = c.substring(1);
-}
-if (c.indexOf(name) == 0) {
-  return c.substring(name.length, c.length);
-}
-}
-return "";
-}
-  
-var  walletAddresscheck=    getCookie("walletAddress") 
-if(walletAddresscheck != ""){
-updateCartNotesAndAttributes(walletAddresscheck)
-var element = document.getElementsByClassName("checkout");
-element[0].style.display = "block";
-var walletButton = document.getElementsByClassName("connect-btn");
-walletButton[0].innerText = "Wallet Connected";
-
-}
-</script>
+<script src="{{ 'fs-cart.js' | asset_url }}" defer="defer"></script>
 
 
 {% schema %}

@@ -51,6 +51,25 @@
     margin-bottom: 0;
     font-family: "Akira-Expanded";
 }
+.for-mobile{
+    display: none;
+}
+.video-container {
+    position: relative;
+    padding-bottom: 28.25%; /* 16:9 aspect ratio (for a 560x315 video) */
+    overflow: hidden;
+    margin: 0 auto 30px;
+    width: 50%;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 
 /* @media screen and (min-width: 1200px) {
     .carousel::after {
@@ -81,6 +100,13 @@
     .carousel .carousel-inner .carousel-item .banner-main-text .banner-fleet-heading {
         font-size: 77px;
         line-height: 77px;
+    }
+    .for-mobile{
+        display: block;
+    }
+    .video-container {
+        padding-bottom: 56.25%;
+        width: 100%;
     }
 }
 

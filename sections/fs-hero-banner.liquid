@@ -23,10 +23,20 @@
             <div class="carousel-item {% if forloop.first%}active{% endif %}">
                 <img src="{{block.settings.image | img_url: 'master'}}" class="d-block w-100" alt="...">
                 <div class="carousel-caption container d-none d-md-block">
-                    <h5 class="banner-title"><span>-20%</span> on Spaceships</h5>
+                    {% if block.settings.eyv %}
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/{{block.settings.yid}}?rel=0" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        {% else %}
+                        <h5 class="banner-title"><span>-20%</span> on Spaceships</h5>
+                    {% endif %}
                     <a href="{{block.settings.btn-url}}">
                         <button class="btn banner-shop-btn">{{block.settings.btn-text}}</button>
                     </a>
+                    
+                </div>
+                <div class="video-container for-mobile">
+                    <iframe src="https://www.youtube.com/embed/{{block.settings.yid}}?rel=0" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <!-- <div class="container banner-main-text">
                     <h2 class="banner-prepare-heading">Prepare your</h2>
@@ -63,6 +73,17 @@
                         "type": "text",
                         "id": "btn-text",
                         "label": "Button Text"
+                    },
+                    {
+                        "type": "checkbox",
+                        "id": "eyv",
+                        "label": "Enable Youtube Video",
+                        "default": true
+                    },
+                    {
+                        "type": "text",
+                        "id": "yid",
+                        "label": "Youtube Video ID"
                     }
                 ]
             }
