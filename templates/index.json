@@ -8,7 +8,9 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/main-banner.png",
             "btn-url": "https:\/\/MonarchMMO.com",
-            "btn-text": "Learn More"
+            "btn-text": "Learn More",
+            "eyv": true,
+            "yid": "https:\/\/youtu.be\/Kh5UwNKVqkk"
           }
         }
       },
