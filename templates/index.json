@@ -12,10 +12,20 @@
             "eyv": true,
             "yid": ""
           }
+        },
+        "0b167447-fec2-4e7f-a58b-1a37b3e905c7": {
+          "type": "Slide",
+          "settings": {
+            "btn-url": "",
+            "btn-text": "",
+            "eyv": true,
+            "yid": ""
+          }
         }
       },
       "block_order": [
-        "89093e0e-152c-42c4-8001-39ceb3c86e51"
+        "89093e0e-152c-42c4-8001-39ceb3c86e51",
+        "0b167447-fec2-4e7f-a58b-1a37b3e905c7"
       ],
       "settings": {
       }
