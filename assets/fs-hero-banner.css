@@ -113,6 +113,7 @@
 @media screen and (max-width: 767.98px) {
     .carousel .carousel-inner .carousel-item {
         height: auto;
+        padding: 100px 0px 0px;
     }
 
     .carousel .carousel-inner .carousel-item .banner-main-text {
